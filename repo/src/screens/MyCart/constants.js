@@ -1,0 +1,16 @@
+export const COUPON_CODE_BLOCK = 'COUPON_CODE_BLOCK';
+export const MY_CART_HEADER = 'MY_CART_HEADER';
+export const MY_CART_PRODUCT_CARD = 'MY_CART_PRODUCT_CARD';
+export const MY_CART_ORDER_SUMMARY = 'MY_CART_ORDER_SUMMARY';
+export const MY_CART_BUY_NOW_PAY_LATER = 'MY_CART_BUY_NOW_PAY_LATER';
+export const MY_CART_CHECKOUT = 'MY_CART_CHECKOUT';
+export const MY_CART_EMPTY_SCREEN = 'MY_CART_EMPTY_SCREEN';
+export const PAYMENT_METHOD_COMPONENT = 'Payment Method Component';
+export const SHIPPING_METHOD_COMPONENT = 'Shipping Address Component';
+export const CART_TOAST = 'CART_TOAST';
+export const MY_CART_CROSS_SELL_WIDGET = 'MY_CART_CROSS_SELL_WIDGET';
+export const DELIVERY_CONTAINER = 'DELIVERY_CONTAINER';
+export const PLACE_ORDER = 'Checkout Place Order Component';
+export const FREE_SHIPPING_MESSAGE = 'Free Shipping Message Component';
+export const BNPL = 'BNPL';
+export const PAYMENT_DECLINED_TOAST = 'Payment Declined Toast';

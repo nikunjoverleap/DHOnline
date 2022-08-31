@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="DH_Location" data-name="DH Location" width="37.072" height="53.878" viewBox="0 0 37.072 53.878">
+  <circle id="Ellipse_71" data-name="Ellipse 71" cx="2.5" cy="2.5" r="2.5" transform="translate(16.001 48.878)" fill="#d22e27"/>
+  <g id="Ellipse_72" data-name="Ellipse 72" transform="translate(6.001 3.878)" fill="#d22e27" stroke="#fff" stroke-width="1">
+    <circle cx="13.5" cy="13.5" r="13.5" stroke="none"/>
+    <circle cx="13.5" cy="13.5" r="13" fill="none"/>
+  </g>
+  <path id="Path_716" data-name="Path 716" d="M45.582,0A18.525,18.525,0,0,0,31.45,30.515L45.582,47.159,59.715,30.515A18.525,18.525,0,0,0,45.582,0ZM52.4,16.37v9.213H38.765V16.37H35.57L45.582,6.358,55.595,16.37Z" transform="translate(-27.046)" fill="#d22e27"/>
+  <g id="Group_565" data-name="Group 565" transform="translate(1.001 2.149)">
+    <path id="Path_20" data-name="Path 20" d="M31.791,15.911l-6.7-4.969L18.4,5.9l-6.7,5.041L5,15.911H9.609l-1.44,7.418H24.445l1.368-7.418Z" fill="#fff"/>
+    <path id="Path_21" data-name="Path 21" d="M20.89,14.2H19.378l-.216,1.368h.792c2.3,0,2.3,1.872,2.017,3.457a4.808,4.808,0,0,1-1.008,2.593,2.609,2.609,0,0,1-2.233.864h-1.08L19.162,14.2H17.649l-.432,2.737H15.993l-.432,2.449H14.192L13.4,23.851h5.617c4.321,0,6.842-1.584,7.346-4.825.576-3.241-1.224-4.825-5.473-4.825" transform="translate(-2.35 -2.322)" fill="#d22e27"/>
+  </g>
+</svg>

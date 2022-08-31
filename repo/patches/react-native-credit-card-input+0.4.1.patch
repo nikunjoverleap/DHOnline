@@ -1,0 +1,162 @@
+diff --git a/node_modules/react-native-credit-card-input/src/CCInput.js b/node_modules/react-native-credit-card-input/src/CCInput.js
+index dde3aec..cdf2007 100644
+--- a/node_modules/react-native-credit-card-input/src/CCInput.js
++++ b/node_modules/react-native-credit-card-input/src/CCInput.js
+@@ -71,29 +71,31 @@ export default class CCInput extends Component {
+             containerStyle, inputStyle, labelStyle,
+             validColor, invalidColor, placeholderColor,
+             additionalInputProps } = this.props;
++
+     return (
+       <TouchableOpacity onPress={this.focus}
+         activeOpacity={0.99}>
+-        <View style={[containerStyle]}>
+-          { !!label && <Text style={[labelStyle]}>{label}</Text>}
++        <View >
+           <TextInput ref="input"
+-            {...additionalInputProps}
+             keyboardType={keyboardType}
+             autoCapitalise="words"
+             autoCorrect={false}
+-            style={[
+-              s.baseInputStyle,
+-              inputStyle,
+-              ((validColor && status === "valid") ? { color: validColor } :
+-              (invalidColor && status === "invalid") ? { color: invalidColor } :
+-              {}),
+-            ]}
+             underlineColorAndroid={"transparent"}
+             placeholderTextColor={placeholderColor}
+             placeholder={placeholder}
+             value={value}
+             onFocus={this._onFocus}
+-            onChangeText={this._onChange} />
++            onChangeText={this._onChange} 
++            {...additionalInputProps}
++            // style={[
++            //   s.baseInputStyle,
++            //   additionalInputProps.style,
++            //   ((validColor && status === "valid") ? { color: validColor } :
++            //   (invalidColor && status === "invalid") ? { color: invalidColor } :
++            //   {}),
++            // ]}
++          />
++        { additionalInputProps?.error? <Text style={{color:'red',paddingLeft:5}}>{additionalInputProps?.error}</Text>:null}
+         </View>
+       </TouchableOpacity>
+     );
+diff --git a/node_modules/react-native-credit-card-input/src/CreditCardInput.js b/node_modules/react-native-credit-card-input/src/CreditCardInput.js
+index 44f43c8..3d11c18 100644
+--- a/node_modules/react-native-credit-card-input/src/CreditCardInput.js
++++ b/node_modules/react-native-credit-card-input/src/CreditCardInput.js
+@@ -11,25 +11,25 @@ import ReactNative, {
+   ViewPropTypes,
+ } from "react-native";
+ 
+-import CreditCard from "./CardView";
++//import CreditCard from "./CardView";
+ import CCInput from "./CCInput";
+ import { InjectedProps } from "./connectToState";
+ 
+ const s = StyleSheet.create({
+   container: {
+-    alignItems: "center",
++  //  alignItems: "center",
+   },
+   form: {
+-    marginTop: 20,
++  //  marginTop: 20,
+   },
+   inputContainer: {
+-    marginLeft: 20,
++  //  marginLeft: 20,
+   },
+   inputLabel: {
+-    fontWeight: "bold",
++  //  fontWeight: "bold",
+   },
+   input: {
+-    height: 40,
++  //  height: 40,
+   },
+ });
+ 
+@@ -84,8 +84,8 @@ export default class CreditCardInput extends Component {
+       postalCode: "34567",
+     },
+     inputContainerStyle: {
+-      borderBottomWidth: 1,
+-      borderBottomColor: "black",
++     // borderBottomWidth: 1,
++     // borderBottomColor: "black",
+     },
+     validColor: "",
+     invalidColor: "red",
+@@ -103,15 +103,15 @@ export default class CreditCardInput extends Component {
+   _focus = field => {
+     if (!field) return;
+ 
+-    const scrollResponder = this.refs.Form.getScrollResponder();
+-    const nodeHandle = ReactNative.findNodeHandle(this.refs[field]);
++    // const scrollResponder = this.refs.Form.getScrollResponder();
++    // const nodeHandle = ReactNative.findNodeHandle(this.refs[field]);
+ 
+-    NativeModules.UIManager.measureLayoutRelativeToParent(nodeHandle,
+-      e => { throw e; },
+-      x => {
+-        scrollResponder.scrollTo({ x: Math.max(x - PREVIOUS_FIELD_OFFSET, 0), animated: true });
+-        this.refs[field].focus();
+-      });
++    // NativeModules.UIManager.measureLayoutRelativeToParent(nodeHandle,
++    //   e => { throw e; },
++    //   x => {
++    //     scrollResponder.scrollTo({ x: Math.max(x - PREVIOUS_FIELD_OFFSET, 0), animated: true });
++    //     this.refs[field].focus();
++    //   });
+   }
+ 
+   _inputProps = field => {
+@@ -149,33 +149,28 @@ export default class CreditCardInput extends Component {
+ 
+     return (
+       <View style={s.container}>
+-        <CreditCard focused={focused}
+-          brand={type}
+-          scale={cardScale}
+-          fontFamily={cardFontFamily}
+-          imageFront={cardImageFront}
+-          imageBack={cardImageBack}
+-          customIcons={cardBrandIcons}
+-          name={requiresName ? name : " "}
+-          number={number}
+-          expiry={expiry}
+-          cvc={cvc} />
+         <ScrollView ref="Form"
+-          horizontal
+           keyboardShouldPersistTaps="always"
+           scrollEnabled={allowScroll}
+           showsHorizontalScrollIndicator={false}
+           style={s.form}>
+           <CCInput {...this._inputProps("number")}
+             keyboardType="numeric"
+-            containerStyle={[s.inputContainer, inputContainerStyle, { width: CARD_NUMBER_INPUT_WIDTH }]} />
++            containerStyle={[s.inputContainer, inputContainerStyle]} />
++            <View style={{flexDirection:'row'}}>
++              <View style={{flex:7}}>
+           <CCInput {...this._inputProps("expiry")}
+             keyboardType="numeric"
+-            containerStyle={[s.inputContainer, inputContainerStyle, { width: EXPIRY_INPUT_WIDTH }]} />
++            containerStyle={[s.inputContainer, inputContainerStyle]} 
++           />
++            </View>
++            <View style={ {flex:3}}>
+           { requiresCVC &&
+             <CCInput {...this._inputProps("cvc")}
+               keyboardType="numeric"
+-              containerStyle={[s.inputContainer, inputContainerStyle, { width: CVC_INPUT_WIDTH }]} /> }
++              containerStyle={[s.inputContainer, inputContainerStyle]} /> }
++              </View>
++              </View>
+           { requiresName &&
+             <CCInput {...this._inputProps("name")}
+               containerStyle={[s.inputContainer, inputContainerStyle, { width: NAME_INPUT_WIDTH }]} /> }

@@ -1,0 +1,11 @@
+//
+//  Staging.xcconfig
+//  danubehomeonline
+//
+//  Created by iMac on 06/06/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_DISPLAY_NAME = Danube Home Staging

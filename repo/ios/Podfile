@@ -1,0 +1,71 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '12.0'
+project 'danubehomeonline.xcodeproj'
+target 'danubehomeonline' do
+  rn_maps_path = '../node_modules/react-native-maps'
+    pod 'react-native-google-maps', :path => rn_maps_path
+    pod 'GoogleMaps'
+    pod 'Google-Maps-iOS-Utils'
+    pod 'PayFortSDK'
+
+  config = use_native_modules!
+  $RNFirebaseAnalyticsWithoutAdIdSupport=true
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # to enable hermes on iOS, change `false` to `true` and then install pods
+    :hermes_enabled => false
+  )
+
+  pod 'RNLocalize', :path => '../node_modules/react-native-localize'
+
+  # pod 'Smartech-iOS-SDK', '~> 3.1.11'
+
+  # pod 'SmartechNudges', '~> 8.5.25'
+
+  target 'danubehomeonlineTests' do
+    inherit! :complete
+    # Pods for danubehomeonlineing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable the next line.
+  use_flipper!()
+
+  post_install do |installer|
+    react_native_post_install(installer)
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
+  end
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  pod 'OneSignalXCFramework', '>= 3.0', '< 4.0'
+end
+
+#service extension target
+target 'SmartechNSE' do
+  ###
+  
+  # Pods for 'YourServiceExtensionTarget'
+  pod 'Smartech-iOS-SDK', '~> 3.1.13'
+  pod 'SmartechNudges', '~> 8.5.25'
+  
+end
+ 
+#content extension target
+target 'SmartechNCE' do
+  ####
+  
+ 
+  # Pods for 'YourContentExtensionTarget'
+  pod 'Smartech-iOS-SDK', '~> 3.1.13'
+  pod 'SmartechNudges', '~> 8.5.25'
+  
+end

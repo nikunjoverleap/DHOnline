@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aps-environment</key>
+	<string>development</string>
+	<key>com.apple.developer.applesignin</key>
+	<array>
+		<string>Default</string>
+	</array>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:www.danubehome.com</string>
+		<string>applinks:danubehome.com</string>
+		<string>applinks:mcstaging.danubehome.com</string>
+		<string>applinks:awsmcdevelop.danubehome.com</string>
+		<string>applinks:zkmj.adj.st</string>
+	</array>
+	<key>com.apple.developer.in-app-payments</key>
+	<array>
+		<string>merchant.com.aldanube.dehome</string>
+	</array>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.aldanube.dehome</string>
+	</array>
+	<key>keychain-access-groups</key>
+	<array/>
+</dict>
+</plist>
