@@ -12,7 +12,7 @@
 		<key>SmartechNCE.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>143</integer>
+			<integer>144</integer>
 		</dict>
 		<key>SmartechNSE.xcscheme_^#shared#^_</key>
 		<dict>
@@ -32,7 +32,7 @@
 		<key>danubehomeonlineTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>144</integer>
+			<integer>143</integer>
 		</dict>
 	</dict>
 </dict>
